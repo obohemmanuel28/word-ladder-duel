@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Ladder Duel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Word Ladder Duel</h1>
+      <div class="date" id="dateLabel"></div>
+    </header>
+
+    <!-- SETUP SCREEN -->
+    <section id="setupScreen" class="screen">
+      <p class="blurb">Turn the start word into the target word, one letter at a time. Every step must be a real word.</p>
+
+      <div class="mode-picker">
+        <button class="mode-btn active" data-mode="solo">Solo</button>
+        <button class="mode-btn" data-mode="duel">Duel (pass & play)</button>
+      </div>
+
+      <div id="duelNames" class="duel-names hidden">
+        <input type="text" id="p1Name" placeholder="Player 1 name" maxlength="16">
+        <input type="text" id="p2Name" placeholder="Player 2 name" maxlength="16">
+      </div>
+
+      <div class="setup-actions">
+        <button id="playDailyBtn" class="primary">Play Today's Puzzle</button>
+        <button id="playRandomBtn">Random Puzzle</button>
+      </div>
+
+      <div class="stats-row" id="statsRow"></div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="gameScreen" class="screen hidden">
+      <div class="turn-banner hidden" id="turnBanner"></div>
+
+      <div class="game-meta">
+        <div class="meta-chip">Moves <span id="moveCount">0</span></div>
+        <div class="meta-chip">Par <span id="parCount">0</span></div>
+        <div class="meta-chip">Time <span id="timeCount">0:00</span></div>
+      </div>
+
+      <div class="ladder" id="ladder"></div>
+
+      <div class="target-display">
+        <div class="ladder-row target" id="targetRow"></div>
+      </div>
+
+      <form id="guessForm" class="guess-form" autocomplete="off">
+        <input type="text" id="guessInput" maxlength="4" placeholder="????" autocapitalize="characters" spellcheck="false">
+        <button type="submit" id="submitGuess">Enter</button>
+      </form>
+      <div class="feedback" id="feedback"></div>
+
+      <div class="game-actions">
+        <button id="undoBtn">Undo</button>
+        <button id="hintBtn">Hint</button>
+        <button id="giveUpBtn">Give Up</button>
+        <button id="quitBtn">Quit</button>
+      </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="resultScreen" class="screen hidden">
+      <div class="result-card" id="resultCard"></div>
+      <div class="result-actions">
+        <button id="playAgainBtn" class="primary">Back to Menu</button>
+        <button id="tryAnotherBtn">Random Puzzle</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="dictionary.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
